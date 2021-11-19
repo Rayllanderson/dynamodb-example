@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  localstack:
+      container_name: localstack
+      image: localstack/localstack:latest
+      working_dir: /home/dynamodblocal
+      environment: 
+        - AWS_DEFAULT_REGION=us-east-1
+        - EDGE_PORT=4566
+        - SERVICES=dynamodb
+      ports:
+        - '4566:4566'
+      volumes:
+        - ../tables:/home/dynamodblocal/tables
+        - ../scripts:/docker-entrypoint-initaws.d
+      
