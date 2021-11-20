@@ -40,4 +40,21 @@ public class Game {
     public String getStatus() {
         return status;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", status='" + status + '\'' + '}';
+    }
 }
