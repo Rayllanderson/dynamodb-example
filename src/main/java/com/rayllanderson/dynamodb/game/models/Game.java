@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 
 import java.util.UUID;
 
-@DynamoDBTable(tableName = "games")
+@DynamoDBTable(tableName = "Games")
 public class Game {
 
     @Id
@@ -18,12 +18,12 @@ public class Game {
     private String name;
 
     @DynamoDBAttribute(attributeName = "status")
-    private GameStatus status;
+    private String status;
 
     @Deprecated(since = "0.0.1")
     public Game() { }
 
-    public Game(String name, GameStatus status) {
+    public Game(String name, String status) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.status = status;
@@ -37,7 +37,7 @@ public class Game {
         return name;
     }
 
-    public GameStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 }

@@ -4,20 +4,12 @@
     {
       "AttributeName": "id",
       "AttributeType": "S"
-    },
-    {
-      "AttributeName": "name",
-      "AttributeType": "S"
     }
   ],
   "KeySchema": [
     {
       "AttributeName": "id",
       "KeyType": "HASH"
-    },
-    {
-      "AttributeName": "name",
-      "KeyType": "RANGE"
     }
   ],
   "ProvisionedThroughput": {
