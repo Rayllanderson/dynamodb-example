@@ -1,10 +1,16 @@
 package com.rayllanderson.dynamodb.game.repository;
 
 import com.rayllanderson.dynamodb.game.models.Game;
-import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
-import org.springframework.data.repository.CrudRepository;
+import com.rayllanderson.dynamodb.game.models.GameStatus;
+import org.springframework.stereotype.Repository;
 
-@EnableScan
-public interface GameRepository extends CrudRepository<Game, String> {
+import java.util.List;
+import java.util.Optional;
 
+@Repository
+public interface GameRepository {
+
+    void save (Game game);
+    Optional<Game> findByIdAndStatus(String id, GameStatus status);
+    List<Game> findAllById(String gameId);
 }

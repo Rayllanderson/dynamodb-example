@@ -2,6 +2,7 @@ package com.rayllanderson.dynamodb.game.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import org.springframework.data.annotation.Id;
 
@@ -14,11 +15,11 @@ public class Game {
     @DynamoDBHashKey(attributeName = "id")
     private String id;
 
+    @DynamoDBRangeKey(attributeName = "status")
+    private String status;
+
     @DynamoDBAttribute(attributeName = "name")
     private String name;
-
-    @DynamoDBAttribute(attributeName = "status")
-    private String status;
 
     @Deprecated(since = "0.0.1")
     public Game() { }
@@ -51,6 +52,12 @@ public class Game {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public static Game withId(String id) {
+        var game = new Game();
+        game.setId(id);
+        return game;
     }
 
     @Override
